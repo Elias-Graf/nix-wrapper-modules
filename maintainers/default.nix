@@ -56,4 +56,9 @@
     githubId = 8916363;
     name = "Nikita Wootten";
   };
+  elias-graf = {
+    name = "Elias Graf";
+    github = "Elias-Graf";
+    githubId = 46671625;
+  };
 }

@@ -3,6 +3,7 @@
 This library provides two main components:
 
 It provides the core system via its `lib` output, internally called `wlib`
+
 - `lib.evalModule`: Function to create reusable wrapper modules with type-safe configuration options
   - And related:
     - `lib.evalPackage`: an alias for `evalModule` which returns the package directly
@@ -14,6 +15,7 @@ It provides the core system via its `lib` output, internally called `wlib`
 And it serves as a repository for modules for wrapping the programs themselves, allowing knowledge to be shared for you to use!
 
 For that it offers:
+
 - `wlib.wrapperModules`: Pre-made wrapper modules for common packages (`tmux`, `wezterm`, etc.)
 - `outputs.wrappers`: a flake output containing partially evaluated forms of the modules in `wrapperModules` for easier access to `.wrap` and other values in the module system directly.
 
@@ -97,7 +99,7 @@ The package (via `passthru`) and the modules under `.config` both offer all 3 fu
 ```nix
 # Apply initial configuration
 # you can use `.eval` `.apply` or `.wrap` for this.
-initialConfig = (inputs.wrappers.wrappers.tmux.eval ({config, pkgs, ...}{
+initialConfig = (inputs.wrappers.wrappers.tmux.eval ({config, pkgs, ...}: {
   # but if you don't plan to provide pkgs yet, you can't use `.wrap` or `.wrapper` yet.
   # config.pkgs = pkgs;
   # but we can still use `pkgs` before that inside!
